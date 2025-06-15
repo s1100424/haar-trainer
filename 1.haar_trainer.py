@@ -8,7 +8,6 @@ if __name__ == '__main__':
     # 轉換xml標記檔為正樣本txt檔
     # 注意：annotations_xml_folder裡的資料應該以事先透過其他工具如makesense.ai標記
     xml_folder = 'annotations_xml_folder'    #標記完成的xml資料夾位置
-    pos_folder = 'positive'    #圖片資料夾位置
     pos_txt = 'positives.txt'  #正樣本txt命名與位置
     neg_folder = 'negative'    #負樣本資料夾位置
     neg_txt = 'negatives.txt'  #負樣本txt命名與位置
