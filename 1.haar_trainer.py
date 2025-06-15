@@ -5,7 +5,7 @@ import confirm
 import trainner
 
 if __name__ == '__main__':
-    # 轉換xml標記檔為正樣本txt檔
+    # 轉換xml標記檔為正樣本路徑txt檔
     # 注意：annotations_xml_folder裡的資料應該以事先透過其他工具如makesense.ai標記
     xml_folder = 'annotations_xml_folder'    #標記完成的xml資料夾位置
     pos_folder = 'positive'    #正樣本資料夾位置
