@@ -3,7 +3,7 @@ import conver_txt
 import augment
 import confirm
 import trainner
-#test
+
 if __name__ == '__main__':
     # 轉換xml標記檔為正樣本txt檔
     # 注意：annotations_xml_folder裡的資料應該以事先透過其他工具如makesense.ai標記
