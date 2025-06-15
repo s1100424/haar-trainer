@@ -45,7 +45,7 @@ if __name__ == '__main__':
     '''
     nP=310   #正樣本數量 
     nN=1200        #負樣本數量
-    nSt = 1    #訓練階段數量
+    nSt = 6    #訓練階段數量
     trainer.train_cascade_classifier(vec_file=vec_txt, bg_txt=ng_aug_txt, data_dir='classifier',numPos = nP, numNeg = nN, numStages=nSt,w = width,h = height)
     #慎用!!!!
 '''開始訓練
