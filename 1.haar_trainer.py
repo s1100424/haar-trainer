@@ -24,8 +24,8 @@ if __name__ == '__main__':
 
     target_total = 1500    #負樣本目標擴增數量
     # rotation_range (最大旋轉角度)預設15,min_scale(最小裁切比例)預設0.125,max_scale(最大裁切比例)預設0.25
-    #augment.negative_samples(neg_folder, ng_aug_dir, ng_aug_txt,target_total) 
-    #augment.positive_samples(pos_txt, pos_aug_dir, pos_aug_txt)
+    augment.negative_samples(neg_folder, ng_aug_dir, ng_aug_txt,target_total) 
+    augment.positive_samples(pos_txt, pos_aug_dir, pos_aug_txt)
 
     #剔除正樣本txt中的錯誤資料
     output_txt='positive_fixed.txt'
