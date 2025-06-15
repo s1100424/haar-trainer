@@ -10,43 +10,43 @@ if __name__ == '__main__':
     xml_folder = 'annotations_xml_folder'    #標記完成的xml資料夾位置
     pos_folder = 'positive'    #正樣本資料夾位置
     neg_folder = 'negative'    #負樣本資料夾位置
-    pos_txt = 'out/positives.txt'  #正樣本txt命名與位置
-    neg_txt = 'out/negatives.txt'  #負樣本txt命名與位置
+    pos_txt = 'positives.txt'  #正樣本txt命名與位置
+    neg_txt = 'negatives.txt'  #負樣本txt命名與位置
     conver_txt.convert_xml_to_pos_txt(xml_folder, pos_folder, pos_txt)
-    #conver_txt.create_negative_txt(neg_folder, neg_txt)
+    conver_txt.create_negative_txt(neg_folder, neg_txt)
 
     #透過旋轉,裁切,縮放等步驟, 擴增正 負樣本數量
-    ng_aug_dir = 'out/ng_augment'    #負樣本擴增後資料夾位置
-    ng_aug_txt = 'out/ng_augment.txt'    #負樣本擴增後txt命名與位置
+    ng_aug_dir = 'ng_augment'    #負樣本擴增後資料夾位置
+    ng_aug_txt = 'ng_augment.txt'    #負樣本擴增後txt命名與位置
 
-    pos_aug_dir = 'out/pos_augment'    #正樣本擴增後資料夾位置
-    pos_aug_txt = 'out/pos_augment.txt'    #正樣本擴增後txt命名與位置
+    pos_aug_dir = 'pos_augment'    #正樣本擴增後資料夾位置
+    pos_aug_txt = 'pos_augment.txt'    #正樣本擴增後txt命名與位置
 
     target_total = 1500    #負樣本目標擴增數量
     # rotation_range (最大旋轉角度)預設15,min_scale(最小裁切比例)預設0.125,max_scale(最大裁切比例)預設0.25
-    augment.negative_samples(neg_folder, ng_aug_dir, ng_aug_txt,target_total) 
-    augment.positive_samples(pos_txt, pos_aug_dir, pos_aug_txt)
+    #augment.negative_samples(neg_folder, ng_aug_dir, ng_aug_txt,target_total) 
+    #augment.positive_samples(pos_txt, pos_aug_dir, pos_aug_txt)
 
     #剔除正樣本txt中的錯誤資料
-    output_txt='out/positive_fixed.txt'
+    output_txt='positive_fixed.txt'
     confirm.clean_positive_file(pos_aug_txt, output_txt)
 
-    vec_txt = 'out/samples.txt'    #建立vec檔時的txt檔命名與位置
-    w = 64    #樣本寬度
-    h = 128   #樣本高度
-    num = 349 #正樣本create_sample 數量
+    vec_txt = 'samples.vec'    #建立vec檔時的txt檔命名與位置
+    width = 64    #樣本寬度
+    height = 128   #樣本高度
+    number = 349 #正樣本create_sample 數量
     #建立vec
-    trainer.create_vec_file(info_txt=output_txt, vec_output=vec_txt, number=num,width=w, height=h)
+    #trainer.create_vec_file(info_txt=output_txt, vec_output=vec_txt, num = number,w = width,h = height)
 
     #訓練分類器
     '''
     這邊建議用cmd指令來訓練分類器, 這樣可以看到詳細的訓練過程與錯誤訊息
     直接用python跑沒有辦法實時的看到訓練狀況 比方 N |HR | FA 還有第幾個SATGE等
     '''
-    numPos=310   #正樣本數量 
-    numNeg=1200        #負樣本數量
-    numStages = 6    #訓練階段數量
-    trainer.train_cascade_classifier(vec_file=vec_txt, bg_txt=ng_aug_txt, data_dir='classifier',nP=numPos, nN=numNeg, ns=numStages, width=w, height=h)
+    nP=310   #正樣本數量 
+    nN=1200        #負樣本數量
+    nSt = 1    #訓練階段數量
+    trainer.train_cascade_classifier(vec_file=vec_txt, bg_txt=ng_aug_txt, data_dir='classifier',numPos = nP, numNeg = nN, numStages=nSt,w = width,h = height)
     #慎用!!!!
 '''開始訓練
 1. 建立''資料夾
