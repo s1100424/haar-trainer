@@ -2,7 +2,7 @@ import os
 import conver_txt
 import augment
 import confirm
-import trainner
+import trainer
 
 if __name__ == '__main__':
     # 轉換xml標記檔為正樣本txt檔
@@ -36,7 +36,7 @@ if __name__ == '__main__':
     h = 128   #樣本高度
     num = 349 #正樣本create_sample 數量
     #建立vec
-    trainner.create_vec_file(info_txt=output_txt, vec_output=vec_txt, number=num,width=w, height=h)
+    trainer.create_vec_file(info_txt=output_txt, vec_output=vec_txt, number=num,width=w, height=h)
 
     #訓練分類器
     '''
@@ -46,7 +46,7 @@ if __name__ == '__main__':
     numPos=310   #正樣本數量 
     numNeg=1200        #負樣本數量
     numStages = 6    #訓練階段數量
-    trainner.train_cascade_classifier(vec_file=vec_txt, bg_txt=ng_aug_txt, data_dir='classifier',nP=numPos, nN=numNeg, ns=numStages, width=w, height=h)
+    trainer.train_cascade_classifier(vec_file=vec_txt, bg_txt=ng_aug_txt, data_dir='classifier',nP=numPos, nN=numNeg, ns=numStages, width=w, height=h)
     #慎用!!!!
 '''開始訓練
 1. 建立''資料夾
