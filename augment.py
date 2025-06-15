@@ -2,7 +2,6 @@ import cv2
 import os
 import random
 import numpy as np
-
 def negative_samples(input_dir, output_dir, output_txt,target_total,rotation_range=15,
                            min_scale=0.125, max_scale=0.25):
     """
