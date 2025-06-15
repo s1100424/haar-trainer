@@ -36,7 +36,7 @@ if __name__ == '__main__':
     height = 128   #樣本高度
     number = 349 #正樣本create_sample 數量
     #建立vec
-    #trainer.create_vec_file(info_txt=output_txt, vec_output=vec_txt, num = number,w = width,h = height)
+    trainer.create_vec_file(info_txt=output_txt, vec_output=vec_txt, num = number,w = width,h = height)
 
     #訓練分類器
     '''
