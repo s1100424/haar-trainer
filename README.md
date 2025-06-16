@@ -8,7 +8,7 @@
 5.修改trainner.create_vec_file與 trainner.train_cascade_classifier中函式的變數以確保符合你得要求  
 6.如果以需要更改更多相關變數請打開trainner.py 那邊有更詳細的設定 包括記憶體 訓練型式等等 
 
-1.detect_camera.py
-1.請先將camera_config.txt裡面的帳號 密碼 與攝影機IP設定好
-2.更改pictPath為cascade.xml的路徑位置
-3.設定minS = 100,maxS = 400(如果您的攝影機畫質為1280*720的話) ps:注意話值越高框框要設越大
+1.detect_camera.py  
+1.請先將camera_config.txt裡面的帳號 密碼 與攝影機IP設定好  
+2.更改pictPath為cascade.xml的路徑位置  
+3.設定minS = 100,maxS = 400(如果您的攝影機畫質為1280*720的話) ps:注意話值越高框框要設越大  
