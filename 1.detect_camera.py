@@ -28,7 +28,7 @@ maxS = 400
 # 請將以下路徑替換為您的分類器檔案路徑
 # 注意：這個分類器應該是您之前訓練好的分類器
 pictPath = r'C:\Users\admin\source\repos\opencv\fin_test\classifier\cascade.xml' 
-face_cascade = cv2.CascadeClassifier(pictPath) # 建立辨識物件
+car_cascade = cv2.CascadeClassifier(pictPath) # 建立辨識物件
 
 #攝像頭抓取
 while True:
@@ -39,17 +39,17 @@ while True:
     if not cap.isOpened():
         print("Error: Cannot open video stream")
         exit()
-    faces = face_cascade.detectMultiScale(img, scaleFactor=1.2,minNeighbors=4, minSize=(minS, minS), maxSize=(maxS, maxS))
-    merged_faces = merge_boxes(faces)
+    cars = car_cascade.detectMultiScale(img, scaleFactor=1.2,minNeighbors=4, minSize=(minS, minS), maxSize=(maxS, maxS))
+    merged_cars = merge_boxes(cars)
     # 標註右下角底色是黃色
     cv2.rectangle(img, (img.shape[1], 0), (img.shape[1]-300, 30), (0, 255, 255), -1)
     # 標註找到多少的人臉
-    cv2.putText(img, "Finding " + str(len(merged_faces)) + " oloo",(img.shape[1]-250, 20),cv2.FONT_HERSHEY_COMPLEX, 0.5, (255, 0, 0), 1)
+    cv2.putText(img, "Finding " + str(len(merged_cars)) + " oloo",(img.shape[1]-250, 20),cv2.FONT_HERSHEY_COMPLEX, 0.5, (255, 0, 0), 1)
     # 將人臉框起來, 由於有可能找到好幾個臉所以用迴圈繪出來
-    for (x, y, w, h) in merged_faces:
+    for (x, y, w, h) in merged_cars:
         cv2.rectangle(img, (x, y), (x+w, y+h), (255, 0, 0), 8) # 藍色框住人臉
-    print(f"Finding " + str(len(merged_faces))+"個oloo")
-    cv2.imshow("Face", img) # 顯示影像
+    print(f"Finding " + str(len(merged_cars))+"個oloo")
+    cv2.imshow("Cars", img) # 顯示影像
     if cv2.waitKey(1) & 0xFF == ord('q'): # 按下 q 鍵就跳出迴圈
         break
 
