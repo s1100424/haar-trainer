@@ -27,7 +27,7 @@ minS = 100
 maxS = 400
 # 請將以下路徑替換為您的分類器檔案路徑
 # 注意：這個分類器應該是您之前訓練好的分類器
-pictPath = r'C:\Users\admin\source\repos\opencv\fin_test\classifier\cascade.xml' 
+pictPath = r'cascade.xml'  #這邊要改成下載完cascade.xml的路徑
 car_cascade = cv2.CascadeClassifier(pictPath) # 建立辨識物件
 
 #攝像頭抓取
