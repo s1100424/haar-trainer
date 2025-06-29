@@ -1,7 +1,7 @@
 # haar-trainer
-#此專題有兩個主程式與4個副程式 以下為使用方式介紹 
-#需要將資料集解壓並放在與主程式同一層的資料夾中
-1.main_transfer.py
+#此專題有兩個主程式與4個副程式 以下為使用方式介紹  
+#需要將資料集解壓並放在與主程式同一層的資料夾中  
+1.main_transfer.py  
 1.先準備好已經標記好想訓練物件的座標檔案(如使用makesense.ai標記後產生的包含xml檔案的資料夾)  
 2.將含有正樣本的資料夾命名為postives 負樣本的資料夾為negatives 帶有.xml叫做annotations_xml_folder  
 3.打開1.main_transfer.py 並設定好你的正樣本與負樣本資料夾路徑與名稱  
