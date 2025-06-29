@@ -43,7 +43,7 @@ if __name__ == '__main__':
     這邊建議用cmd指令來訓練分類器, 這樣可以看到詳細的訓練過程與錯誤訊息
     直接用python跑沒有辦法實時的看到訓練狀況 比方 N |HR | FA 還有第幾個SATGE等
     '''
-    nP=310   #正樣本數量 
+    nP=240   #正樣本數量 
     nN=1200        #負樣本數量
     nSt = 6    #訓練階段數量
     trainer.train_cascade_classifier(vec_file=vec_txt, bg_txt=ng_aug_txt, data_dir='classifier',numPos = nP, numNeg = nN, numStages=nSt,w = width,h = height)
